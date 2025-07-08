@@ -6,8 +6,12 @@ from google.oauth2 import service_account
 
 app = FastAPI()
 
-# Path to your service account credentials file
-SERVICE_ACCOUNT_FILE = r'C:\Users\Bhavika.gopalani\Downloads\faq-reader\service_account_file.json'
+SERVICE_ACCOUNT_FILE = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+
+# Ensure the environment variable is set
+if not SERVICE_ACCOUNT_FILE:
+    raise ValueError("The environment variable GOOGLE_APPLICATION_CREDENTIALS is not set.")
+
 SPREADSHEET_ID = '14AYQlJrP-TKmzSI7FZJ7VozVisERz7DI'
 RANGE_NAME = 'Sheet1!A1:C20'  # Adjust based on your sheet range
 
