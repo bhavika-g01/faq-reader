@@ -45,3 +45,23 @@ async def fetch_faq():
 
     return JSONResponse(content={"faqs": faq_list})
 
+
+def custom_openapi():
+    if app.openapi_schema:
+        return app.openapi_schema
+    openapi_schema = get_openapi(
+        title="FastAPI",
+        version="0.1.0",
+        routes=app.routes,
+    )
+    openapi_schema["servers"] = [
+        {
+            "url": "https://faq-reader.onrender.com"  # Make sure this matches your actual deployed URL
+        }
+    ]
+    app.openapi_schema = openapi_schema
+    return app.openapi_schema
+
+# 👇 This is the critical part
+app.openapi = custom_openapi
+
