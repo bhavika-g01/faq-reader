@@ -9,12 +9,13 @@ from fastapi import FastAPI, Query
 
 app = FastAPI()
 
-SERVICE_ACCOUNT_INFO = os.getenv('GOOGLE_CREDS_JSON')
+SERVICE_ACCOUNT_JSON = os.getenv('GOOGLE_CREDS_JSON')
 
 # Ensure the environment variable is set
-if not SERVICE_ACCOUNT_INFO:
+if not SERVICE_ACCOUNT_JSON:
     raise ValueError("The environment variable GOOGLE_CREDS_JSON not available.")
 
+SERVICE_ACCOUNT_INFO = json.loads(SERVICE_ACCOUNT_JSON)
 SPREADSHEET_ID = '1msw7c6rGV5oK9jkG_-5Kff-nB2eDXHEsI4H1vx0BXL0'
 RANGE_NAME = 'Sheet1!A1:C20'  # Adjust based on your sheet range
 
