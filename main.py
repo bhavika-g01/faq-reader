@@ -7,21 +7,18 @@ import os
 
 app = FastAPI()
 
-SERVICE_ACCOUNT_FILE = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+SERVICE_ACCOUNT_INFO = os.getenv('GOOGLE_CREDS_JSON')
 
 # Ensure the environment variable is set
-if not SERVICE_ACCOUNT_FILE:
-    raise ValueError("The environment variable GOOGLE_APPLICATION_CREDENTIALS is not set.")
+if not SERVICE_ACCOUNT_INFO:
+    raise ValueError("The environment variable GOOGLE_CREDS_JSON not available.")
 
 SPREADSHEET_ID = '1msw7c6rGV5oK9jkG_-5Kff-nB2eDXHEsI4H1vx0BXL0'
 RANGE_NAME = 'Sheet1!A1:C20'  # Adjust based on your sheet range
 
 # Authenticate using service account credentials
 def authenticate_google_sheets():
-    credentials = service_account.Credentials.from_service_account_file(
-        SERVICE_ACCOUNT_FILE,
-        scopes=["https://www.googleapis.com/auth/spreadsheets.readonly"],
-    )
+    credentials = service_account.Credentials.from_service_account_info(SERVICE_ACCOUNT_INFO, scopes=["https://www.googleapis.com/auth/spreadsheets.readonly"],)
     service = build('sheets', 'v4', credentials=credentials)
     return service
 
