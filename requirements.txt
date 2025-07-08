@@ -32,3 +32,9 @@ typing_extensions==4.14.1
 urllib3==2.5.0
 uvicorn==0.35.0
 wheel==0.45.1
+fastapi==0.95.0
+uvicorn==0.22.0
+google-auth==2.13.0
+google-auth-oauthlib==0.5.2
+google-auth-httplib2==0.1.0
+google-api-python-client==2.88.0
