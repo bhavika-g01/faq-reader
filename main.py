@@ -13,7 +13,7 @@ SERVICE_ACCOUNT_FILE = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
 if not SERVICE_ACCOUNT_FILE:
     raise ValueError("The environment variable GOOGLE_APPLICATION_CREDENTIALS is not set.")
 
-SPREADSHEET_ID = '14AYQlJrP-TKmzSI7FZJ7VozVisERz7DI'
+SPREADSHEET_ID = '1msw7c6rGV5oK9jkG_-5Kff-nB2eDXHEsI4H1vx0BXL0'
 RANGE_NAME = 'Sheet1!A1:C20'  # Adjust based on your sheet range
 
 # Authenticate using service account credentials
