@@ -4,6 +4,8 @@ import google.auth
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 import os
+from fastapi.openapi.utils import get_openapi
+from fastapi import FastAPI, Query
 
 app = FastAPI()
 
