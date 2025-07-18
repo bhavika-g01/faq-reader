@@ -18,7 +18,7 @@ if not SERVICE_ACCOUNT_JSON:
 
 SERVICE_ACCOUNT_INFO = json.loads(SERVICE_ACCOUNT_JSON)
 SPREADSHEET_ID = '1msw7c6rGV5oK9jkG_-5Kff-nB2eDXHEsI4H1vx0BXL0'
-RANGE_NAME = 'Sheet1!A1:C20'  # Adjust based on your sheet range
+RANGE_NAME = 'Sheet1!A:C' # Adjust based on your sheet range
 
 # Authenticate using service account credentials
 def authenticate_google_sheets():
